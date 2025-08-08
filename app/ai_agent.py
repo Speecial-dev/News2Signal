@@ -8,13 +8,15 @@ from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.schema import BaseMessage, HumanMessage, AIMessage
 from langchain.memory import ConversationBufferMemory
 from langchain.tools import tool
+
 from pydantic import BaseModel, Field
 import asyncio
+from langchain_community.chat_models import ChatOpenAI
 
 load_dotenv()
 
 # OpenAI API Key kontrolü
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = os.getenv("TOGETHER_API_KEY")
 if not OPENAI_API_KEY:
     raise ValueError("OPENAI_API_KEY environment variable is required")
 
@@ -45,10 +47,12 @@ class PlottingToolInput(BaseModel):
 class FinancialAgent:
     def __init__(self):
         # OpenAI LLM
+       
         self.llm = ChatOpenAI(
-            model="gpt-4",
+            model="mistralai/Mixtral-8x7B-Instruct-v0.1",  # Önerilen Together modeli
             temperature=0.1,
-            api_key=OPENAI_API_KEY
+            openai_api_key=os.getenv("TOGETHER_API_KEY"),
+            openai_api_base="https://api.together.xyz/v1"
         )
         
         # Memory

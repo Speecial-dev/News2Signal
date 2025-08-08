@@ -1,0 +1,15 @@
+services:
+  mysql:
+    image: mysql:8
+    container_name: news2signal-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: news2signal
+    ports:
+      - "3307:3306" # Dışarıdan 3307, içeride 3306
+    volumes:
+      - news2signal_mysql_data:/var/lib/mysql
+
+volumes:
+  news2signal_mysql_data:
