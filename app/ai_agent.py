@@ -11,7 +11,6 @@ from langchain.tools import tool
 
 from pydantic import BaseModel, Field
 import asyncio
-from langchain_community.chat_models import ChatOpenAI
 
 load_dotenv()
 

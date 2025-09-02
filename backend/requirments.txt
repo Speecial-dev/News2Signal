@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy>=2.0
+pymysql
+python-dotenv
+passlib[bcrypt]
+pydantic>=2
+PyJWT

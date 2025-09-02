@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+venv/
+.env
+
+# Alembic migrations (takip edilmeli!)
+# migrations/
+migrations/versions/
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Backend cache/instance
+instance/
+
+# Frontend (Node.js)
+frontend/node_modules/
+frontend/.env
+frontend/.next/
+frontend/dist/
+docker-compose.yml
